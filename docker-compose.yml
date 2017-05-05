@@ -1,0 +1,18 @@
+web:
+  image: naflm/php7
+  ports:
+    - "8080:80"
+  volumes:
+    - ./src:/var/www/html/
+  links:
+    - db
+
+db:
+  image: mysql
+  volumes:
+    - /var/lib/mysql
+  environment:
+    - MYSQL_DATABASE=obblmdb
+    - MYSQL_USER=obblm
+    - MYSQL_PASSWORD=obbpaSSw0rd
+    - MYSQL_ROOT_PASSWORD=my-secret-pw
