@@ -1,16 +1,17 @@
 web:
-  image: naflm/php7
+  image: naflm/php5-master
   ports:
     - "8080:80"
-  volumes:
-    - ./src:/var/www/html/
+# uncomment if you are going to deploy the code locally (develop php code)
+#  volumes:
+#    - ./src:/var/www/html/
   links:
     - db
 
 db:
   image: mysql
-  volumes:
-    - /var/lib/mysql
+#  volumes:
+#    - /var/lib/mysql
   environment:
     - MYSQL_DATABASE=obblmdb
     - MYSQL_USER=obblm

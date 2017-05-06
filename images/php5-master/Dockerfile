@@ -9,5 +9,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install mysql
     #&& docker-php-ext-install mysqli
+RUN apt-get install -y git
 
-# To toggle between mysql and mysqli switch the commands around.
+#run the git from the naflm master branch
+RUN git clone https://github.com/TheNAF/naflm.git /var/www/html/
+
+#images need to be writable by the webserver.
+RUN chmod g+w /var/www/html/images
+RUN chmod a+w /var/www/html/images
