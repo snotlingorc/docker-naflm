@@ -17,3 +17,6 @@ RUN git clone https://github.com/TheNAF/naflm.git /var/www/html/
 #images need to be writable by the webserver.
 RUN chmod g+w /var/www/html/images
 RUN chmod a+w /var/www/html/images
+
+#Put in the defulat settings.php file to match the docker images
+COPY settings.php /var/www/html/.
